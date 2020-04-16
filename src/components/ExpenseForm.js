@@ -122,12 +122,15 @@ export default class ExpenseForm extends React.Component {
 
 ExpenseForm.propTypes = {
   onSubmitForm: PropTypes.func.isRequired,
-  description: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
-  createdAt: PropTypes.number.isRequired,
+  description: PropTypes.string,
+  amount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   note: PropTypes.string,
 };
 
 ExpenseForm.defaultProps = {
   note: "",
+  amount: "",
+  description: "",
+  createdAt: "",
 };

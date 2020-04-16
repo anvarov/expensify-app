@@ -14,7 +14,6 @@ export default (expenses, { text, sortBy, startDate, endDate }) => {
       const textMatch = expense.description
         .toLowerCase()
         .includes(text.toLowerCase());
-
       return startDateMatch && endDateMatch && textMatch;
     })
     .sort((a, b) => {

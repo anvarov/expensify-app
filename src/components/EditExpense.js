@@ -2,24 +2,34 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ExpenseForm from "./ExpenseForm";
-import { editExpense } from "../actions/expenses";
+import { editExpense, removeExpense } from "../actions/expenses";
 
 const EditExpensePage = (props) => {
-  const { expense } = props;
+  const { expense, dispatch } = props;
+  const { id, description, createdAt, note, amount } = expense;
 
   return (
     <div>
       <ExpenseForm
-        id={expense.id}
-        description={expense.description}
-        note={expense.note}
-        amount={expense.amount}
-        createdAt={expense.createdAt}
+        id={id}
+        description={description}
+        note={note}
+        amount={amount}
+        createdAt={createdAt}
         onSubmitForm={(updatedExpense) => {
-          props.dispatch(editExpense(expense.id, updatedExpense));
+          props.dispatch(editExpense(id, updatedExpense));
           props.history.push("/");
         }}
       />
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(removeExpense({ id }));
+          props.history.push("/")
+        }}
+      >
+        Remove
+      </button>
     </div>
   );
 };

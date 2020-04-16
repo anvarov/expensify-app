@@ -37,10 +37,14 @@ ExpenseList.propTypes = {
   ).isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    expenses: selectExpenses(state.expenses, state.filters),
+const makeMapStateToProps = () => {
+  const mapStateToProps = (state) => {
+    const { expenses, filters } = state;
+    return {
+      expenses: selectExpenses(expenses, filters),
+    };
   };
+  return mapStateToProps;
 };
 
-export default connect(mapStateToProps)(ExpenseList);
+export default connect(makeMapStateToProps)(ExpenseList);

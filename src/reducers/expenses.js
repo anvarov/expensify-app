@@ -16,7 +16,7 @@ export default (state = expensesReducerDefaultState, action) => {
             ...action.updates,
           };
         }
-        return "ID have not been found";
+        return expense;
       });
     default:
       return state;
