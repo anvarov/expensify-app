@@ -7,17 +7,20 @@ export default [
     description: "coke",
     amount: 1459,
     createdAt: moment(0).subtract(4, "days").valueOf(),
+    note: "",
   },
   {
     id: "3",
     description: "credit card",
     amount: 12000,
     createdAt: moment(0).subtract(8, "days").valueOf(),
+    note: "",
   },
   {
     id: "4",
     description: "rent",
     amount: 445000,
     createdAt: moment(0).subtract(12, "days").valueOf(),
+    note: "",
   },
 ];
