@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import PropTypes, { oneOfType } from "prop-types";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import {
@@ -77,9 +77,9 @@ const mapStateToProps = (state) => ({
 ExpenseListFilters.propTypes = {
   filters: PropTypes.shape({
     text: PropTypes.string,
-    sortyBy: PropTypes.string.isRequired,
-    startDate: PropTypes.number,
-    endDate: PropTypes.number,
+    sortyBy: PropTypes.string,
+    startDate: PropTypes.object,
+    endDate: PropTypes.object,
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
