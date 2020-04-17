@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import PropTypes, { oneOfType } from "prop-types";
+import PropTypes from "prop-types";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import {
