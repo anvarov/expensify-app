@@ -1,2 +1,3 @@
 node_modules
 src/tests/components/__snapshots__
+public/dist
