@@ -24,3 +24,17 @@ export default [
     note: "",
   },
 ];
+
+const noExpense = [];
+
+const singleExpense = [
+  {
+    id: "1",
+    description: "gum",
+    note: "",
+    amount: "195",
+    createdAt: 0,
+  },
+];
+
+export { noExpense, singleExpense };

@@ -5,6 +5,6 @@ import expenses from "../fixtures/expenses";
 
 test("should render expense list item", () => {
   // eslint-disable-next-line react/jsx-props-no-spreading
-  const wrapper = shallow(<ExpenseListItem {...expenses[0]} />);
+  const wrapper = shallow(<ExpenseListItem {...expenses[1]} />);
   expect(wrapper).toMatchSnapshot();
 });

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import ExpenseListItem from "./ExpenseListItem";
 import selectExpenses from "../selectors/expenses";
 
@@ -30,12 +30,12 @@ export const ExpenseList = (props) => {
   );
 };
 ExpenseList.propTypes = {
-  expenses: PropType.arrayOf(
-    PropType.shape({
-      description: PropType.string.isRequired,
-      note: PropType.string,
-      amount: PropType.number.isRequired,
-      createdAt: PropType.number.isRequired,
+  expenses: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string.isRequired,
+      note: PropTypes.string,
+      amount: PropTypes.number.isRequired,
+      createdAt: PropTypes.number.isRequired,
     })
   ).isRequired,
 };
