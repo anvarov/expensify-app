@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ExpenseForm from "./ExpenseForm";
-import { addExpense } from "../actions/expenses";
+import { startAddExpense } from "../actions/expenses";
 
 export class AddExpensePage extends React.Component {
   onSubmitForm = (expense) => {
@@ -28,6 +28,6 @@ AddExpensePage.propTypes = {
   }).isRequired,
 };
 const mapDispatchToProps = (dispatch) => ({
-  onSubmitForm: (expense) => dispatch(addExpense(expense)),
+  onSubmitForm: (expense) => dispatch(startAddExpense(expense)),
 });
 export default connect(undefined, mapDispatchToProps)(AddExpensePage);

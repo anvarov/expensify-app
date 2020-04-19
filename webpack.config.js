@@ -3,6 +3,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const webpack = require("webpack");
+const dotenv = require("dotenv");
+
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
+
+if (process.env.NODE_ENV === "test") {
+  dotenv.config({ path: ".env.test" });
+} else if (process.env.NODE_ENV === "development") {
+  dotenv.config({ path: ".env.development" });
+}
 
 module.exports = (env) => {
   const isProduction = env === "production";
@@ -32,14 +41,31 @@ module.exports = (env) => {
       },
     },
     plugins: [
-      // new webpack.optimize.OccurenceOrderPlugin(),
       new MiniCssExtractPlugin({
         filename: "[name].css",
       }),
       new webpack.DefinePlugin({
-        "process.env": {
-          NODE_ENV: JSON.stringify("production"),
-        },
+        "process.env.FIREBASE_API_KEY": JSON.stringify(
+          process.env.FIREBASE_API_KEY
+        ),
+        "process.env.FIREBASE_DOMAIN": JSON.stringify(
+          process.env.FIREBASE_DOMAIN
+        ),
+        "process.env.FIREBASE_DATABASE_URL": JSON.stringify(
+          process.env.FIREBASE_DATABASE_URL
+        ),
+        "process.env.FIREBASE_STORAGE_BUCKET": JSON.stringify(
+          process.env.FIREBASE_STORAGE_BUCKET
+        ),
+        "process.env.FIREBASE_MESSAGING_SENDER_ID": JSON.stringify(
+          process.env.FIREBASE_MESSAGING_SENDER_ID
+        ),
+        "process.env.FIREBASE_APP_ID": JSON.stringify(
+          process.env.FIREBASE_APP_ID
+        ),
+        "process.env.FIREBASE_PROJECT_ID": JSON.stringify(
+          process.env.FIREBASE_PROJECT_ID
+        ),
       }),
     ],
     module: {

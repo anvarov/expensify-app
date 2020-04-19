@@ -8,6 +8,7 @@ import configureStore from "./store/configureStore";
 import { addExpense } from "./actions/expenses";
 import "react-dates/lib/css/_datepicker.css";
 import "react-dates/initialize";
+import "./firebase/firebase";
 
 const store = configureStore();
 store.dispatch(
