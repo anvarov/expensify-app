@@ -51,3 +51,29 @@ export const editExpense = (id, updates) => ({
   id,
   updates,
 });
+
+// SET_EXPENSES
+// fired first when app is loadad for fetching data from firebase
+export const setExpenses = (expenses) => ({
+  type: "SET_EXPENSES",
+  expenses,
+});
+
+// START_EXPENSES
+
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    return database
+      .ref("expenses")
+      .once("value")
+      .then((snapshot) => {
+        const expenses = [];
+        const fetchedExpenses = snapshot.val();
+        const fetchedExpensesKeys = Object.keys(fetchedExpenses);
+        fetchedExpensesKeys.forEach((expenseId) => {
+          expenses.push({ id: expenseId, ...fetchedExpenses[expenseId] });
+        });
+        dispatch(setExpenses(expenses));
+      });
+  };
+};

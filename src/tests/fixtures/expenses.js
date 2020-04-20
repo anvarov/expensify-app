@@ -1,7 +1,7 @@
 import moment from "moment";
 
 export default [
-  { id: "1", description: "gum", amount: 145, createdAt: 0 },
+  { id: "1", description: "gum", amount: 145, createdAt: 0, note: "" },
   {
     id: "2",
     description: "coke",

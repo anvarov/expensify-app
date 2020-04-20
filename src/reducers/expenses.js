@@ -18,6 +18,9 @@ export default (state = expensesReducerDefaultState, action) => {
         }
         return expense;
       });
+    // fired first when fetching expenses array from firebase
+    case "SET_EXPENSES":
+      return action.expenses;
     default:
       return state;
   }
