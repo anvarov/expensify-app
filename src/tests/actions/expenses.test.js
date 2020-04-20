@@ -9,6 +9,7 @@ import {
   startAddExpense,
   startSetExpenses,
   startRemoveExpense,
+  startEditExpenses,
 } from "../../actions/expenses";
 import expenses from "../fixtures/expenses";
 import expenseReducer from "../../reducers/expenses";
@@ -147,6 +148,32 @@ test("should call remove expense action correctly and delete expense from fireba
     })
     .then((snapshot) => {
       expect(snapshot.val()).toBeFalsy();
+      done();
+    });
+});
+
+test("should set up edit expense action and update expense on firebase", (done) => {
+  const updates = {
+    note: "new note",
+    createdAt: 1234,
+    description: "updated description",
+    amount: 1250,
+  };
+  const store = createMockStore({});
+  const actions = store.getActions();
+  const { id } = expenses[0];
+  store
+    .dispatch(startEditExpenses(id, updates))
+    .then(() => {
+      expect(actions[0]).toEqual({
+        type: "EDIT_EXPENSE",
+        id,
+        updates,
+      });
+      return database.ref(`expenses/${id}`).once("value");
+    })
+    .then((snapshot) => {
+      expect(snapshot.val()).toEqual(updates);
       done();
     });
 });

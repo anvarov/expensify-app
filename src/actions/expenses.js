@@ -64,6 +64,19 @@ export const editExpense = (id, updates) => ({
   updates,
 });
 
+// START_EDIT_EXPENSES
+
+export const startEditExpenses = (id, updates) => {
+  return (dispatch) => {
+    return database
+      .ref(`expenses/${id}`)
+      .set(updates)
+      .then(() => {
+        dispatch(editExpense(id, updates));
+      });
+  };
+};
+
 // SET_EXPENSES
 // fired first when app is loadad for fetching data from firebase
 export const setExpenses = (expenses) => ({
