@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ExpenseForm from "./ExpenseForm";
-import { editExpense, removeExpense } from "../actions/expenses";
+import { editExpense, startRemoveExpense } from "../actions/expenses";
 
 export class EditExpensePage extends React.Component {
   onSubmitForm = (updatedExpense) => {
@@ -42,7 +42,7 @@ export class EditExpensePage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: (id) => dispatch(removeExpense({ id })),
+    onClick: (id) => dispatch(startRemoveExpense({ id })),
     onSubmitForm: (id, updatedExpense) =>
       dispatch(editExpense(id, updatedExpense)),
   };

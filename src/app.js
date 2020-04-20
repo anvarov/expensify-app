@@ -25,5 +25,8 @@ store
     ReactDOM.render(jsx, document.getElementById("app"));
   })
   .catch((error) => {
-    ReactDOM.render(<p>{`Sorry error - ${error} has occured`}</p>);
+    ReactDOM.render(
+      <p>{`Sorry error - ${error} has occured`}</p>,
+      document.getElementById("app")
+    );
   });
