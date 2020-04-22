@@ -2,15 +2,6 @@ import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 
-const firebaseConfigtemp = {
-  apiKey: "AIzaSyBbcpzdeejTiEsV2VSvd__BSPInlXykbKM",
-  authDomain: "expensify-dev-c7264.firebaseapp.com",
-  databaseURL: "https://expensify-dev-c7264.firebaseio.com",
-  projectId: "expensify-dev-c7264",
-  storageBucket: "expensify-dev-c7264.appspot.com",
-  messagingSenderId: "244849625705",
-  appId: "1:244849625705:web:6bd15e92ce8d28552330f8"
-};
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_DOMAIN,
@@ -21,7 +12,7 @@ const config = {
   appId: process.env.FIREBASE_APP_ID,
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfigtemp);
+firebase.initializeApp(config);
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export { firebase, googleAuthProvider, database as default };
