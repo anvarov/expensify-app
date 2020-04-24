@@ -4,10 +4,14 @@ import PropTypes from "prop-types";
 import { startLogin } from "../actions/auth";
 
 export const LoginPage = ({ dispatchStartLogin }) => (
-  <div>
-    <button onClick={dispatchStartLogin} type="button">
-      Login
-    </button>
+  <div className="box-layout">
+    <div className="box-layout__box">
+      <h1 className="box-layout__title">Expensify</h1>
+      <p>It is time to get control of your expenses</p>
+      <button className="button" onClick={dispatchStartLogin} type="button">
+        Login with Google
+      </button>
+    </div>
   </div>
 );
 

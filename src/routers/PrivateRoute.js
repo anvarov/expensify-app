@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import HeaderDefault from "../components/Header";
+import Footer from "../components/Footer";
 
 export const PrivateRoute = ({
   isAuthenticated,
@@ -14,9 +15,10 @@ export const PrivateRoute = ({
     {...rest}
     component={(props) =>
       isAuthenticated ? (
-        <div>
+        <div className="wrapper">
           <HeaderDefault />
           <Component {...props} />
+          <Footer />
         </div>
       ) : (
         <Redirect to="/" />

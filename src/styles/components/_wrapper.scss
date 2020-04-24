@@ -1,0 +1,32 @@
+.wrapper--footer {
+    display: flex;
+    background: $dark-blue;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: $m-size;
+    height: $l-size;
+    flex-grow: 0;
+    flex-direction: column;
+}
+
+.wrapper--footer__title {
+    text-decoration: none;
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-content: stretch
+}
+
+.wrapper--header {
+    flex-grow: 0;
+}
+
+.wrapper--dashboard {
+    flex-grow: 1;
+}
+

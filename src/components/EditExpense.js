@@ -25,16 +25,27 @@ export class EditExpensePage extends React.Component {
 
     return (
       <div>
-        <ExpenseForm
-          description={description}
-          note={note}
-          amount={amount}
-          createdAt={createdAt}
-          onSubmitForm={this.onSubmitForm}
-        />
-        <button type="button" onClick={this.onClick}>
-          Remove
-        </button>
+        <div className="page-content">
+          <div className="content-container">
+          <h1 className="page-content__title">Edit Expense</h1></div>
+
+          </div>
+        <div className="content-container">
+          <ExpenseForm
+            description={description}
+            note={note}
+            amount={amount}
+            createdAt={createdAt}
+            onSubmitForm={this.onSubmitForm}
+          />
+          <button
+            className="button--secondary"
+            type="button"
+            onClick={this.onClick}
+          >
+            Remove
+          </button>
+        </div>
       </div>
     );
   }

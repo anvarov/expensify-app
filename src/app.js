@@ -11,6 +11,7 @@ import "react-dates/lib/css/_datepicker.css";
 import "react-dates/initialize";
 import { firebase } from "./firebase/firebase";
 import { login, logout } from "./actions/auth";
+import LoadingPage from "./components/LoadingPage"
 
 const store = configureStore();
 
@@ -19,7 +20,7 @@ const jsx = (
     <AppRouter />
   </Provider>
 );
-ReactDOM.render(<p>Loading...</p>, document.getElementById("app"));
+ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 let hasRendered = false;
 

@@ -15,7 +15,7 @@ const AppRouter = () => (
   <Router history={history}>
     <div>
       <Switch>
-        <PublicRoute path="/" exact component={LoginPageDefault} />
+        <PublicRoute path="/" component={LoginPageDefault} exact />
         <PrivateRouteDefault
           path="/dashboard"
           component={ExpenseDashboardPage}

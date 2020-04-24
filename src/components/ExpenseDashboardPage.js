@@ -4,9 +4,9 @@ import ExpenseListFilter from "./ExpenseListFilters";
 import ExpenseSummaryDefault from "./ExpenseSummary";
 
 const ExpenseDashboardPage = () => (
-  <div>
-    <ExpenseListFilter />
+  <div className="wrapper--dashboard">
     <ExpenseSummaryDefault />
+    <ExpenseListFilter />
     <ExpenseListDefault />
   </div>
 );

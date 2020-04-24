@@ -82,38 +82,43 @@ export default class ExpenseForm extends React.Component {
       error,
     } = this.state;
     return (
-      <div>
-        {error && <p>{error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Description"
-            onChange={this.onDescriptionChange}
-            value={description}
-          />
-          <input
-            type="text"
-            placeholder="Amount"
-            onChange={this.onAmountChange}
-            value={amount}
-          />
-          <SingleDatePicker
-            date={createdAt}
-            onDateChange={this.onDateChange}
-            focused={calendarFocused}
-            onFocusChange={this.onFocusChange}
-            id={moment().toString()}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
-          <textarea
-            placeholder="Add a note for your expense (optional)"
-            onChange={this.onNoteChange}
-            value={note}
-          />
-          <button type="submit">Add Expense</button>
-        </form>
-      </div>
+      <form onSubmit={this.onSubmit} className="form">
+        {error && <p className="form__error">{error}</p>}
+        <input
+          className="text-input"
+          type="text"
+          placeholder="Description"
+          onChange={this.onDescriptionChange}
+          value={description}
+        />
+        <input
+          type="text"
+          className="text-input"
+          placeholder="Amount"
+          onChange={this.onAmountChange}
+          value={amount}
+        />
+        <SingleDatePicker
+          date={createdAt}
+          onDateChange={this.onDateChange}
+          focused={calendarFocused}
+          onFocusChange={this.onFocusChange}
+          id={moment().toString()}
+          numberOfMonths={1}
+          isOutsideRange={() => false}
+        />
+        <textarea
+          className="textarea"
+          placeholder="Add a note for your expense (optional)"
+          onChange={this.onNoteChange}
+          value={note}
+        />
+        <div>
+          <button type="submit" className="button">
+            Add Expense
+          </button>
+        </div>
+      </form>
     );
   }
 }
