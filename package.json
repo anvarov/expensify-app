@@ -16,6 +16,7 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@babel/runtime": "^7.9.2",
+    "core-js": "^3.6.5",
     "express": "^4.17.1",
     "firebase": "^7.14.1",
     "history": "^4.10.1",

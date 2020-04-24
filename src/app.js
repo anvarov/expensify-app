@@ -1,3 +1,5 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import "raf/polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -11,7 +13,7 @@ import "react-dates/lib/css/_datepicker.css";
 import "react-dates/initialize";
 import { firebase } from "./firebase/firebase";
 import { login, logout } from "./actions/auth";
-import LoadingPage from "./components/LoadingPage"
+import LoadingPage from "./components/LoadingPage";
 
 const store = configureStore();
 
